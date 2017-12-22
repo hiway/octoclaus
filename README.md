@@ -34,3 +34,28 @@ $ cd octoclaus
 $ nimble build
 $ ./octoclaus
 ```
+
+## Usage
+
+Edit the `commands.yaml` file to suit your needs:
+
+```yaml
+---
+- name: uname
+  desc: "Get uname of host."
+  raw: "uname -a"
+
+- name: ping
+  desc: "Pings a known server."
+  raw: "ping -c 1 8.8.8.8"
+```
+
+- `name` is a short URL safe string, spaces are fine here.
+- `desc` is free-form description of what the command does.
+- `raw` is the raw command as sent to shell.
+
+## Limitations:
+
+- Commands are static, no way to provide options from web.
+- Commands are executed synchronously.
+- Long-running commands do not display progress.
