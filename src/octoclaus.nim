@@ -43,14 +43,14 @@ routes:
   get "/":
     var commands = ""
     for cmd in commandList:
-      commands.add(li(button(`class`="command", cmd.name), span(cmd.desc)))
-    var content = `div`(`div`(
-        h1("Octoclaus"),
-        h3("Available commands:"),
-        ul(commands),
-        `class`="sidebar"
-        ),
+      commands.add(li(span(cmd.desc), button(`class`="command", cmd.name)))
+    var content = `div`(
+        `div`(
+          h1("Octoclaus"),
+          ul(commands),
+          `class`="sidebar"),
         `div`(id="output"),
+        `class`="wrapper",
         )
     body.add(layout(content))
     status = Http200
@@ -80,7 +80,8 @@ routes:
         let outp = execProcess(command.raw)
         logging.debug("RUN " & command.raw)
         logging.debug("OUT " & outp)
-        body = outp.string
+        body = "$ " & command.raw & "\n"
+        body.add(outp.string)
         status = Http200
         break
 
