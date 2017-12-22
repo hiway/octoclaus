@@ -43,7 +43,12 @@ routes:
   get "/":
     var commands = ""
     for cmd in commandList:
-      commands.add(li(span(cmd.desc), button(`class`="command", cmd.name)))
+      commands.add(
+          li(
+            a(`class`="command", href=cmd.name, cmd.desc),
+            `div`(`class`="command_raw", cmd.raw),
+            )
+        )
     var content = `div`(
         `div`(
           h1("Octoclaus"),

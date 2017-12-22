@@ -12,9 +12,10 @@ proc lazyRequest(endpoint: cstring): cstring {.importc.}
 proc outputListener(event: ref TEvent) =
   let
     output = document.getElementById("output")
-    command = $event.target.innerHTML
+    command = $event.target.getAttribute("href")
     api = lazyRequest(endpoint & command)
   output.innerHTML = "<pre>" & $api & "</pre>" & $output.innerHTML
+  event.preventDefault()
 
 proc stuff(event: ref TEvent) =
   for elem in document.getElementsByClassName("command"):
