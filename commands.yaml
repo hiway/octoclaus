@@ -1,12 +1,24 @@
 ---
-- name: uname
-  desc: "Get uname of host."
+- name: uname-full
+  desc: "Get uname of host"
   raw: "uname -a"
 
-- name: ping
-  desc: "Pings a known server."
-  raw: "ping -c 1 8.8.8.8"
+- name: get-all-ip-addresses
+  desc: "Get IP addresses of host"
+  raw: "ifconfig | egrep 'flags|inet' "
 
-- name: date
-  desc: "Current date-time on host."
-  raw: "date"
+- name: ping-google-dns
+  desc: "Ping google dns server"
+  raw: "ping -c 3 8.8.8.8"
+
+- name: start-redis-server
+  desc: "Start Redis server."
+  raw: "brew services start redis"
+
+- name: stop-redis-server
+  desc: "Stop Redis server."
+  raw: "brew services stop redis"
+
+- name: reboot raspberry-pi
+  desc: "Reboot raspberry-pi"
+  raw: "ssh 192.168.1.99 'sudo reboot'"
