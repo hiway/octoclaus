@@ -54,7 +54,7 @@ Edit the `commands.yaml` file to suit your needs:
   raw: "ping -c 1 8.8.8.8"
 ```
 
-- `name` is a short URL safe string, spaces are fine here.
+- `name` is a short, unique, URL safe string, spaces are fine here.
 - `desc` is free-form description of what the command does.
 - `raw` is the raw command as sent to shell.
 
