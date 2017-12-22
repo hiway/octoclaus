@@ -1,0 +1,12 @@
+---
+- name: uname
+  desc: "Get uname of host."
+  raw: "uname -a"
+
+- name: ping
+  desc: "Pings a known server."
+  raw: "ping -c 1 8.8.8.8"
+
+- name: date
+  desc: "Current date-time on host."
+  raw: "date"
