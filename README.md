@@ -19,6 +19,8 @@ Unzip and run
 $ ./octoclaus
 ```
 
+Visit: `http://localhost:8080` in your browser.
+
 Copy / link to user `bin`:
 
 ```bash
