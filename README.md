@@ -1,8 +1,29 @@
 # octoclaus
 
-Web frontend for your commonly-executed commands.
+Use octoclaus to build a web-interface for your often-needed
+but too complicated to remember command-line tasks on
+BSD/Linux/MacOS. You can, for example set up octoclaus on
+a RaspberryPi, serve the interface within a WiFi network and
+let your family, friends or coworkers run commands right
+from their browsers.
+
+For office, tasks like running tests on-demand or deploying
+to local staging server could be easily set up with minimal
+fuss - download the binary and example commands.yaml file,
+edit the commands to your liking and run `$ ./octoclaus` .
 
 ![screen shot 2017-12-22 at 18 10 15](https://user-images.githubusercontent.com/23116/34298361-674e5964-e743-11e7-92df-fb67af6a5596.png)
+
+> Never use octoclaus directly on the open internet.
+> If you must, set up a reverse-proxy behind TLS endpoint
+> such as nginx or Tor hidden service (v3). By default
+> octoclaus will only bind to localhost.
+
+Unlike the tools that inspired it - Ansible and RunDeck,
+octoclaus aims to be a one-trick-octoclaus** that does one
+thing well - lets you run commands (to control services,
+perform tasks or query information) on one machine with
+a simple web interface.
 
 ## Install
 
@@ -45,13 +66,17 @@ Edit the `commands.yaml` file to suit your needs:
 
 ```yaml
 ---
-- name: uname
-  desc: "Get uname of host."
+- name: uname-full
+  desc: "Get uname of host"
   raw: "uname -a"
 
-- name: ping
-  desc: "Pings a known server."
-  raw: "ping -c 1 8.8.8.8"
+- name: get-all-ip-addresses
+  desc: "Get IP addresses of host"
+  raw: "ifconfig | egrep 'flags|inet' "
+
+- name: ping-google-dns
+  desc: "Ping google dns server"
+  raw: "ping -c 3 8.8.8.8"
 ```
 
 - `name` is a short, unique, URL safe string, spaces are fine here.
@@ -79,7 +104,7 @@ Octoclaus is an experiment to see if I can reduce the
 friction in my workflows by enabling easy access to
 most-run commands right in my browser.
 
-For security, I run all my remote machines behind a VPN,
+For security, I run all my remote services behind a VPN,
 and the firewall at home keeps the clients inside home
 WiFi bridged to the VPN - each instance of octoclaus binds
 to the internal/VPN interface instead of all or public IPs.
@@ -95,3 +120,8 @@ the expressive syntax to make development just as painless
 as working with Python.
 
 Contributions welcome!
+
+
+## Stars and things
+
+** octoclauses cannot be ponies, that's ridiculous!
