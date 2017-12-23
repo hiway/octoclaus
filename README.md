@@ -12,7 +12,7 @@ to local staging server could be easily set up with minimal
 fuss - download the binary and example commands.yaml file,
 edit the commands to your liking and run `$ ./octoclaus` .
 
-![screen shot 2017-12-22 at 18 10 15](https://user-images.githubusercontent.com/23116/34298361-674e5964-e743-11e7-92df-fb67af6a5596.png)
+![screen shot 2017-12-23 at 00 35 41](https://user-images.githubusercontent.com/23116/34309830-1f2ed64a-e77a-11e7-9e6a-9e9fbb7b9946.png)
 
 > Never use octoclaus directly on the open internet.
 > If you must, set up a reverse-proxy behind TLS endpoint
